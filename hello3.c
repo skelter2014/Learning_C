@@ -5,11 +5,16 @@ void printComma() {
     return;
 }
 
+void printWord( char* word ){
+    printf( "%s", word);
+}
+
 int main()
 {
-    printf ( "Hello");
+    printWord( "Hello" );
     printComma();
-    printf ("world!\n");
+    printWord( "world" );
+    printf("!\n");
     return 0;
 }
 /* eof */
