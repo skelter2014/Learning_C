@@ -6,7 +6,7 @@
 int tests_run = 0;
 
 int foo = 6;
-int bar = 4;
+int bar = 5;
 
 static char *test_foo()
 {
@@ -29,6 +29,7 @@ static char *all_tests()
 
 int main(int argc, char **argv)
 {
+
     char *result = all_tests();
     if (result != 0) {
         printf("%s\n", result);
