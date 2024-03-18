@@ -17,7 +17,7 @@
  * 
  * @ref https://stackoverflow.com/questions/4089174/printf-and-long-double/14988103#14988103?newreg=4c0479e9f2ce4587b51aa76702f5e361
 */
-#define printf __mingw_printf
+
 
 //function prototypes
 void printSizes(void);
@@ -72,7 +72,7 @@ void printRanges( void ){
     printf("ranges for real number data types i C\n");
     printf("float %14.7g %14.7g\n", FLT_MIN, FLT_MAX);
     printf("double %14.7g %14.7g\n", DBL_MIN, DBL_MAX);
-    printf("long double %3.7Lg %4.7Lg\n",__LDBL_MIN__, __LDBL_MAX__);
+    printf("long double %3.7Lg %4.7Lg\n",LONG_MIN, LONG_MAX);
     printf("\n");
 
  

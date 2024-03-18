@@ -7,7 +7,7 @@ void printComma() {
 
 int main()
 {
-    printf ( "Hello");
+    printf ("Hello");
     printComma();
     printf ("world!\n");
     return 0;
