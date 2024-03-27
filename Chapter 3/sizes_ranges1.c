@@ -4,19 +4,6 @@
 #include <limits.h>
 #include <float.h>
 
-/**
- * If you are using MinGW, the problem is that by default, MinGW uses the I/O resp.
- * formatting functions from the Microsoft C runtime, which doesn't support 80 bit 
- * floating point numbers (long double == double in Microsoft land).
- * However, MinGW also comes with a set of alternative implementations that do 
- * properly support long doubles. To use them, prefix the function names 
- * with __mingw_ (e.g. __mingw_printf). Depending on the nature of your project, 
- * you might also want to globally #define printf __mingw_printf or use 
- * -D__USE_MINGW_ANSI_STDIO (which enables the MinGW versions of all the 
- * printf-family functions).
- * 
- * @ref https://stackoverflow.com/questions/4089174/printf-and-long-double/14988103#14988103?newreg=4c0479e9f2ce4587b51aa76702f5e361
-*/
 
 
 //function prototypes
@@ -69,10 +56,10 @@ void printRanges( void ){
     printf("uint32_t %20d %20u\n", 0, UINT_MAX);
     printf("uint64_t %20d %20llu\n", 0, ULLONG_MAX);
     printf("\n");
-    printf("ranges for real number data types i C\n");
+    printf("ranges for real number data types in C\n");
     printf("float %14.7g %14.7g\n", FLT_MIN, FLT_MAX);
     printf("double %14.7g %14.7g\n", DBL_MIN, DBL_MAX);
-    printf("long double %3.7Lg %4.7Lg\n",LONG_MIN, LONG_MAX);
+    printf("long double %3.7Lg %4.7Lg\n",LDBL_MIN, LDBL_MAX);
     printf("\n");
 
  
