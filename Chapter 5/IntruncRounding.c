@@ -8,7 +8,7 @@ int main(void)
     float f = 58.73;
     short int i = 13;
 
-    longIntFunc(i);
+    longIntFuncdds(i);
     longIntFunc(f);
 
     doubleFunc(f);
