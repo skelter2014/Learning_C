@@ -11,18 +11,20 @@ struct Card {
     enum Face face;
     int faceValue;
     bool isWild;
+    bool test;
+    double test2;
 };
 
 void  main(void)
 {
 
     struct Card card;
-    printf ("enum Suit is %lu bytes\n", sizeof (enum Suit));
-    printf ("enum Face is %lu bytes\n", sizeof (enum Face));
-    printf (" int is %lu bytes\n", sizeof (int));
-    printf (" bool is %lu bytes\n", sizeof (bool));
+    printf("enum Suit is %lu bytes\n", sizeof(enum Suit));
+    printf("enum Face is %lu bytes\n", sizeof(enum Face));
+    printf(" int is %lu bytes\n", sizeof(int));
+    printf(" bool is %lu bytes\n", sizeof(bool));
 
-    printf (" struct Card is %lu bytes\n", sizeof (struct Card));
-    printf (" card is %lu bytes\n", sizeof (card));
+    printf(" struct Card is %lu bytes\n", sizeof(struct Card));
+    printf(" card is %lu bytes\n", sizeof(card));
 
 }

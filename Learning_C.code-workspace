@@ -8,6 +8,6 @@
 		}
 	],
 	"settings": {
-		"explorer.excludeGitIgnore": true
+		"explorer.excludeGitIgnore": false
 	}
 }
