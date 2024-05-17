@@ -1,4 +1,7 @@
 #include <stdio.h>
+#define DEBUG 1
+
+
 
 int main(void)
 {
@@ -27,10 +30,13 @@ int main(void)
     printf("              [%#12o] [%#12u] [%#12x] [%#12X]\n", -2, -2, -2, -2);
     printf("              [%#12o] [%#12u] [%#12x] [%#12X]\n", -smallInt, -smallInt, -smallInt, -smallInt);
 
+#if DEBUG
     printf("Negative Numbers as Unsigned 0 - -16 :\n");
 
     for (int i = 0; i > -16; i--) {
 
         printf(" [%3d]           [%#12o] [%#12u] [%#12x] [%#12X]\n", i, i, i, i, i);
     }
+
+#endif
 }
