@@ -29,9 +29,9 @@ ListNode* GetNode(LinkedList* pList, int pos);
 ListNode* CreateNode(ListData* pData);
 void DeleteNode(ListNode* pNode);
 //Print prototypes;
-void (*printData)(ListData* pData);
-void PrintList(LinkedList* pList, void (*printData)(ListData* pData));
-void PrintNode(ListNode* pNode, void (*printData)(ListData* pData));
+void (*__printData)(ListData* pData);
+void PrintList(LinkedList* pList, void (*__printData)(ListData* pData));
+void PrintNode(ListNode* pNode, void (*__printData)(ListData* pData));
 void PrintInt(ListData* pData);
 void OutOfStorage(void);
 int Size(LinkedList* pList);
@@ -52,6 +52,7 @@ int main(void)
         TestPrintOperation(pList, eInsert, data1[i], eFront);
     }
     TestPrintOperation(pList, eLook, 0, eFront);
+    TestPrintOperation(pList, eLook, 0, eBack);
     TestPrintOperation(pList, eDelete, 0, eBack);
 
     printf("\nUsing input {5 6 7}\t\t");
@@ -61,16 +62,22 @@ int main(void)
         TestPrintOperation(pList, eInsert, data2[i], eFront);
     }
     TestPrintOperation(pList, eLook, 0, eBack);
+    TestPrintOperation(pList, eLook, 0, eFront);
 
     int nodeCount = pList->nodeCount;
     for (int i = 0; i < nodeCount; i++) {
-        TestPrintOperation(pList, eDelete, 0, (i % 2 ==0) ? eFront: eBack);
+        TestPrintOperation(pList, eDelete, 0, (i % 2 == 0) ? eFront : eBack);
     }
+    TestPrintOperation(pList, eLook, 0, eBack);
+    TestPrintOperation(pList, eLook, 0, eFront);
 
 }
-
 ListData TestExamineNode(LinkedList* pList, eWhere where)
 {
+    if (pList->nodeCount == 0) {
+        //return *CreateData(INT_MIN);
+        return INT_MIN;
+    }
     ListNode* pNode;
     switch (where) {
         case eFront: pNode = GetNode(pList, 0); break;
@@ -90,7 +97,6 @@ void TestCreateNodeAndInsert(LinkedList* pList, ListData data, eWhere where)
         case eFront: InsertNodeToFront(pList, pNode); break;
     }
 }
-
 ListData TestRemoveNodeAndFree(LinkedList* pList, eWhere where)
 {
     ListNode* pNode;
@@ -125,30 +131,32 @@ void TestPrintOperation(LinkedList* pList, eAction action, ListData data, eWhere
 
 }
 
-
-void PrintNode(ListNode* pNode, void(*printData)(ListData* pData))
+/*********************************************************/
+/*********************************************************/
+void PrintNode(ListNode* pNode, void(*__printData)(ListData* pData))
 {
-    printData(pNode->pData);
+    __printData(pNode->pData);
 }
 void PrintInt(int* i)
 {
-    printf("%2d ", *i);
+    printf("%2d ", *i); //*i dereferences the pointer to the integer
 }
 void DeleteNode(ListNode* pNode)
 {
     free(pNode->pData);
     free(pNode);
 }
-void PrintList(LinkedList* pList, void (*printData)(ListData* pData))
+void PrintList(LinkedList* pList, void (*__printData)(ListData* pData))
 {
     printf("List has %2d entries: [ ", Size(pList));
     ListNode* pCurr = pList->pFirstNode;
     while (pCurr != NULL) {
-        PrintNode(pCurr, printData);
+        PrintNode(pCurr, __printData);
         pCurr = pCurr->pNext;
     }
     printf(" ]\n");
 }
+//this creates a pointer to the ListData provided... (which is an alias for an int)
 ListData* CreateData(ListData d)
 {
     ListData* pData = (ListData*)calloc(1, sizeof(ListData));
@@ -181,30 +189,30 @@ ListNode* RemoveNodeFromBack(LinkedList* pList)
     ListNode* pCurr = pList->pFirstNode;
     ListNode* pPrev = NULL;
 
+    //Empty List
     if (IsEmpty(pList)) // list is empty
     {
         return NULL;
     }
+    //Single Node is an exception case. Need to NULL out the pFirstNode
     else if (pList->nodeCount == 1) {
         ListNode* lastNode = pList->pFirstNode;
         pList->pFirstNode = NULL;
         pList->nodeCount--;
         return lastNode;
     }
-    while (pCurr->pNext != NULL)
-    {
-        pPrev = pCurr;
-        pCurr = pCurr->pNext;
-    }
-    //if (pPrev != NULL) { 
+    else {
+        while (pCurr->pNext != NULL)
+        {
+            pPrev = pCurr;
+            pCurr = pCurr->pNext;
+        }
         pPrev->pNext = NULL;
-    //}
-    pList->nodeCount--;
+        pList->nodeCount--;
 
-    return pCurr;
+        return pCurr;
+    }
 }
-
-
 ListNode* RemoveNodeFromFront(LinkedList* pList)
 {
     if (IsEmpty(pList)) { return NULL; }
