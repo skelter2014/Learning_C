@@ -24,7 +24,26 @@ int main(void)
     printf("             [%20.3lld]   [%-20.3lld]   [%lld] \n", reallyLargeInt, reallyLargeInt, reallyLargeInt);
 
 
+
+
+  //Power of 2
+    printf("\nPowers of 2: 2^0, 2^2, 2^4, 2^6, 2^8, 2^10\n");
+    int k = 1;
+
+    for (int i = 0; i < 6; i++, k <<= 2) {
+        printf("               [%6d] [%-6d] [%-.6d] [%6.3d] [%-6.3d] [%d]\n", k, k, k, k,k,k);
+    }
+
+    //Power of 9 ????
+    printf("\nPowers of 9:       9^1,    9^2,     9^3,     9^4,     9^5\n");
+    k = 9;
+    for (int i = 0; i < 5; i++, k *= 9) {
+        printf("               [%6d] [%-6d] [%.6d] [%6.3d] [%-6.3d] [%d]\n", k, k, k, k,k,k);
+    }
     printf("\n\n");
+
+
+
     return EXIT_SUCCESS;
 
 }
