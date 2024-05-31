@@ -9,7 +9,8 @@ unsigned createMask(unsigned a, unsigned b);
 int main(void)
 {
 
-    printf(" +++++ UnSigned Integer +++++\n\n");
+    printf(" +++++ UnSigned Integer +++++\n");
+    printf(" + Shift One bit to the right 32 times +\n\n");
 
     unsigned int x = ~0;
     int count = 0;
@@ -28,30 +29,11 @@ int main(void)
 
 
     printf(" +++++ Signed Integer +++++\n\n");
-    for (int i = 7; i > -9; i--) {
+    for (int i = -16; i < 17; i++) {
         printBits(i);
-        printf("   i = [%2i] %#010x\n", i, i);
+        printf("   i = [%3i] %#010x\n", i, i);
     }
     printf("\n\n");
-
-    // unsigned short y = USHRT_MAX;
-
-    // printBits(y);
-    // printf("\n");
-
-    // y = 0xefca;
-    // printBits(y);
-    // printf("\n");
-
-    // unsigned r = createMask(0, 3);
-    // printBits((y >> 4) & r);
-    // printf(" ");
-
-    // r = createMask(0, 3);
-    // printBits(y & r);
-    // printf("\n");
-
-
 
 }
 
@@ -72,9 +54,6 @@ void printBits(unsigned x)
         temp = (x >> (i * 4)) & r;
         strcat(result, ar[temp]);
     }
-
-
-
     printf("%s", result);
 }
 
