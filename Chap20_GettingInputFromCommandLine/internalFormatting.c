@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 
 const int bufferSize = 80;
 
@@ -26,5 +27,21 @@ int main(void)
     numPrinted = sprintf(sOut, "integer=[%d] double=[%3.3lf]",
         anInteger, aDouble);
     printf("%d characters in output string \" %s \" \n", numPrinted, sOut);
+
+
+    /* using atoi and atof ascii to integer and ascii to float functions*/
+
+    puts("++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
+
+    char sInteger[] = "1234";
+    char sDouble[] = "567.8910";
+    printf("As strings: integer=\"%s\" double=\"%s\"\n",sInteger, sDouble );
+    anInteger = atoi(sInteger);
+    aDouble = atof(sDouble);
+
+    printf("As values: integer=[%d] double=[%lf]\n",anInteger, aDouble );
+
+
+
 
 }
