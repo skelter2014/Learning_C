@@ -9,8 +9,8 @@ This version uses straight char[] arrays instead of a typedef
 const int listMax = 5;
 const int stringMax = 80;
 
-void addName(char names[listMax][stringMax], char newOne[], int* listSize);
-void printNames(char names[listMax][stringMax], int listSize);
+void addName(char names[][stringMax], char newOne[], int* listSize);
+void printNames(char names[][stringMax], int listSize);
 
 void removeNewLine(char* s)
 {
@@ -28,8 +28,38 @@ int main(void)
         addName(names, newName, &numNames);
     }
     printNames(names, numNames);
+
+    //Use a single pointer. iterate through rows
+    for (int i = 0; i < numNames; i++) {
+        printNamesWithPointer(&names[i]);
+    }
+
+    printNamesWithDoublePointer(*names, numNames);
+
 }
 
+
+void printNamesWithDoublePointer(char* names, int numNames){
+
+    char* temp = &names;
+    fputs(temp, stdout);
+    fputc('\n', stdout);
+
+}
+void printNamesWithPointer(char* name)
+{
+    fputs(name, stdout);
+    fputc('\n', stdout);
+}
+
+void printNames(char names[][stringMax], int numEntries)
+{
+    printf("\nNumber of Entries: %d\n\n", numEntries);
+    for (int i = 0; i < numEntries; i++) {
+        fputs(names[i], stdout);
+        fputc('\n', stdout);
+    }
+}
 void addName(char names[][stringMax], char* newName, int* pNumEntries)
 {
     if (*pNumEntries >= listMax) { //list is full
@@ -52,14 +82,6 @@ void addName(char names[][stringMax], char* newName, int* pNumEntries)
     strcpy(names[k], newName); //add the new name at k position
     *pNumEntries += 1;
     return; //Is this needed?
-}
-void printNames(char names[][stringMax], int numEntries)
-{
-    printf("\nNumber of Entries: %d\n\n", numEntries);
-    for (int i = 0; i < numEntries; i++) {
-        fputs(names[i], stdout);
-        fputc('\n', stdout);
-    }
 }
 
 
