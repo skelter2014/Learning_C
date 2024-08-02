@@ -30,6 +30,8 @@ int main(void)
     printNames(names, numNames);
 
     //Use a single pointer. iterate through rows
+    printf("\nprint with : (pointer)");
+
     for (int i = 0; i < numNames; i++) {
         printNamesWithPointer(&names[i]);
     }
@@ -39,7 +41,8 @@ int main(void)
 }
 
 
-void printNamesWithDoublePointer(char* names, int numNames){
+void printNamesWithDoublePointer(char* names, int numNames)
+{
 
     char* temp = &names;
     fputs(temp, stdout);
@@ -48,6 +51,7 @@ void printNamesWithDoublePointer(char* names, int numNames){
 }
 void printNamesWithPointer(char* name)
 {
+
     fputs(name, stdout);
     fputc('\n', stdout);
 }
