@@ -20,6 +20,7 @@ typedef struct {
     int nodeCount;
 } NameList;
 
+NameList* CreateNameList();
 ListNode* CreateNodeList(char* pNameToAdd);
 void AddName(NameList* pNames, char* pNameToAdd);
 void PrintNames(FILE* outputFileDesc, NameList* pNames);

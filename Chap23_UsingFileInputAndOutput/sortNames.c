@@ -3,11 +3,9 @@
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h> //for getopt
-#include <getopt.h>
 #include <sys/errno.h> //for errno
 #include <ctype.h>
 #include "nameList.h"
-#include "nameList.c"
 
 //**CONST declarations
 const int stringMax = 80;
