@@ -1,5 +1,10 @@
 #include "dealer.h"
-
+/**
+ * To build/debug this file, use the directory build task instead of the file build task.:
+ * "name": "C/C++: gcc build and debug directory",
+ * 
+ * the project root folder should also be the Learning_C folder rather than one level up
+ */
 void PrintCard(Card* pCard)
 {
     char cardStr[20] = { 0 };
