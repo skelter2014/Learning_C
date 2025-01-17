@@ -1,16 +1,21 @@
 #include "dealer.h"
 /**
  * To build/debug this file, use the directory build task instead of the file build task.:
- * "name": "C/C++: gcc build and debug directory",
+ * "name": "C/C++: gcc build and debug directory", -- note this is in the drop down menu from the run and debug
+ * function of Code on the left hand side.
  * 
  * the project root folder should also be the Learning_C folder rather than one level up
  */
+
+// Print a card by converting it to a string and printing the string
 void PrintCard(Card* pCard)
 {
     char cardStr[20] = { 0 };
     CardToString(pCard, cardStr);
     printf("%18s", cardStr);
 }
+
+// Convert a card to a string representation
 void CardToString(Card* pCard, char pCardStr[20])
 {
     switch (pCard->face) {
@@ -36,8 +41,9 @@ void CardToString(Card* pCard, char pCardStr[20])
         case club: strcat(pCardStr, "of Clubs");break;
         default: strcat(pCardStr, "of ???");break;
     }
-
 }
+
+// Initialize a card with a suit, face, and wild status
 void InitializeCard(Card* pCard, Suit s, Face f, bool wild)
 {
     pCard->suit = s;
