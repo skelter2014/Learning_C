@@ -1,0 +1,1 @@
+echo "\033[34m hello world \033[44m"
