@@ -3,3 +3,4 @@
 *.pdb
 *.git
 *.exe
+build/
