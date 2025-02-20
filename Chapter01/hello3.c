@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-void printComma() {
+void printComma1() {
     printf(", ");
     return;
 }
@@ -9,10 +9,10 @@ void printWord( char* word ){
     printf( "%s", word);
 }
 
-int main()
+int hello3_main()
 {
     printWord( "Hello" );
-    printComma();
+    printComma1();
     printWord( "world" );
     printf("!\n");
     return 0;
