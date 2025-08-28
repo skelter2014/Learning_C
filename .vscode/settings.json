@@ -9,5 +9,9 @@
         "**/CVS": true,
         "**/.DS_Store": true
         
-    }
+    },
+    "[c]": {
+        "editor.defaultFormatter": "xaver.clang-format"
+    },
+    "C_Cpp.clang_format_style": "file"
 }
