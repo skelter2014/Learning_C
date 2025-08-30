@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-int main()
+int hello_main()
 {
     printf("Hello, World! This is a native C program compiled on the command line.\n");
     return 0;

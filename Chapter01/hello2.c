@@ -5,7 +5,7 @@ void printComma() {
     return;
 }
 
-int main()
+int hello2_main()
 {
     printf ("Hello");
     printComma();

@@ -1,6 +1,7 @@
 {
     "files.associations": {
-        "stdio.h": "c"
+        "stdio.h": "c",
+        "ctype.h": "c"
     }, "files.exclude": {
         "**/.git": true,
         "**/.svn": true,
@@ -8,5 +9,9 @@
         "**/CVS": true,
         "**/.DS_Store": true
         
-    }
+    },
+    "[c]": {
+        "editor.defaultFormatter": "xaver.clang-format"
+    },
+    "C_Cpp.clang_format_style": "file"
 }

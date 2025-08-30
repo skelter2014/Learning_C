@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-int main(){
+int helloMain_noWhite(){
     printf ("Hello,\t\'world!\'no white space\b");/*nice!*/
     return 0;
 }
