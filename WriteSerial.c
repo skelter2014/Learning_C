@@ -106,7 +106,7 @@ int main() {
     Sleep(3000); // Give extra time for reset and initial boot
 
     // Define the starting address
-    uint32_t start_address = 0x0000110; // For example, address 16
+    uint32_t start_address = 0x0000140; // For example, address 16
 
     // Send the data
     printf("Sending data to Arduino at address 0x%08X (escaped protocol)...\n", start_address);
@@ -115,8 +115,8 @@ int main() {
     printf("Data sent. Now listening for Arduino output...\n");
 
     // Read and print Arduino output
-    char readBuffer[256];
-    char fullMessage[1024]; // Larger buffer for complete message
+    char readBuffer[260];
+    char fullMessage[2048]; // Larger buffer for complete message
     fullMessage[0] = '\0';
     
     while (strstr(fullMessage, "Write complete.") == NULL) {
@@ -141,5 +141,6 @@ int main() {
     }
 
     CloseHandle(hSerial);
+    printf("\n");
     return 0;
 }
