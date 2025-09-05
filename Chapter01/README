@@ -1,0 +1,22 @@
+to compile and link the driver.c program
+
+it is done in 2 steps. first compile to object files and then use the same gcc tool to link the object files together into an executable
+
+skelter2014@SkelterMain:~/Learning_C/Chapter01$ gcc -c hello1.c -o hello1.o
+skelter2014@SkelterMain:~/Learning_C/Chapter01$ gcc -c hello2.c -o hello2.o
+skelter2014@SkelterMain:~/Learning_C/Chapter01$ gcc -c hello3.c -o hello3.o
+skelter2014@SkelterMain:~/Learning_C/Chapter01$ gcc -c hello.c -o hello.o
+skelter2014@SkelterMain:~/Learning_C/Chapter01$ gcc driver.o hello.o hello1.o hello2.o hello3.o -o my_program
+skelter2014@SkelterMain:~/Learning_C/Chapter01$ ./my_program
+Calling hello1_main:
+Hello, world!
+
+Calling hello2_main:
+Hello, world!
+
+Calling hello3_main:
+Hello, world!
+
+Calling hello_main from hello.c:
+Hello, World! This is a native C program compiled on the command line.
+skelter2014@SkelterMain:~/Learning_C/Chapter01$ 
