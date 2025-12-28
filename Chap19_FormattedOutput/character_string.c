@@ -8,7 +8,7 @@ int main(void){
     printf("Specifier Formatted Value\n");
     printf("%%s       \t[%s]            everything\n", pStr);
     printf("%%30s     \t[%30s]          everything right-aligned field=30\n", pStr);
-    printf("%%.10s    \t[%.10s]                        truncated to first 10 char\n", pStr);
+    printf("%%.10s    \t[%.10s]         truncated to first 10 char\n", pStr);
     printf("%%30.10s  \t[%30.10s]       10 char, right aligned. fld=30\n", pStr);
     printf("%%-30.10s \t[%-30.10s]      10 char, left aligned. fld=30\n", pStr);
     printf("%%*.*s    \t[%*.*s]         10 char, left aligned. fld=30\n\n", 30,10, pStr);
