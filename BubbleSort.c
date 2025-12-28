@@ -2,8 +2,8 @@
 #include <stdlib.h>
 #include <time.h>
 
-#define SIZE 100
-#define RANGE 1000000
+#define SIZE  10000
+#define RANGE 10000
 
 void bubble_sort(int *arr, int n);
 void print_array(int *arr, int n);
